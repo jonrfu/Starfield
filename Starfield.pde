@@ -4,9 +4,10 @@ void setup()
   noStroke();
   size(800,800);
   background(255);
-  dots= new Particle[100];
+  dots= new Particle[150];
   for(int i=0;i<dots.length;i++){
   dots[i]= new Particle();
+  dots[0]= new OddballParticle();
   }
 }
 void draw()
@@ -36,13 +37,21 @@ int myColor, mySize;
   }
   void show(){
   fill(myColor);
-  ellipse((int)myX,(int)myY,mySize,mySize); 
+  ellipse((float)myX,(float)myY,mySize,mySize); 
   }
 }
 void mousePressed(){
   background(255);
 }
-class OddballParticle //inherits from Particle
+class OddballParticle extends Particle
 {
-  
+  OddballParticle(){
+    myX=400;
+  }
+  void move(){
+    
+  }
+  void show(){
+    
+  }
 }
