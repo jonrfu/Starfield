@@ -1,13 +1,13 @@
-Particle[] dots;
+Particle[] dots= new Particle[150];
+boolean start= false;
 void setup()
 {
   noStroke();
   size(800,800);
   background(255);
-  dots= new Particle[150];
   for(int i=0;i<dots.length;i++){
   dots[i]= new Particle();
-  dots[0]= new OddballParticle();
+  dots[149]= new OddballParticle();
   }
 }
 void draw()
@@ -46,12 +46,16 @@ void mousePressed(){
 class OddballParticle extends Particle
 {
   OddballParticle(){
-    myX=400;
+    myY=myX=400;
+    myColor=0;
   }
   void move(){
-    
+  myX+=mySpeed*Math.sin(myAngle);
+  myY+=mySpeed*Math.cos(myAngle);
+
   }
   void show(){
-    
+     fill(myColor);
+  rect((float)myX,(float)myY,30,30); 
   }
 }
